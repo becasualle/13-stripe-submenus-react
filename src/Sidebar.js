@@ -10,11 +10,13 @@ const Sidebar = () => {
       <div className="sidebar">
         <button className="close-btn" onClick={closeSidebar}><FaTimes /></button>
         <div className="sidebar-links">
+          {/* for each sublink item get links and page and return article */}
           {sublinks.map((item, index) => {
             const { links, page } = item;
             return (<article key={index}>
               <h4>{page}</h4>
               <div className="sidebar-sublinks">
+                {/* for each link return sublink item */}
                 {links.map((link, index) => {
                   const { url, icon, label } = link;
                   return (

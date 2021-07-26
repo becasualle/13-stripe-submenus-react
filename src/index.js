@@ -5,6 +5,7 @@ import App from './App'
 import { AppProvider } from './context'
 ReactDOM.render(
   <React.StrictMode>
+    {/* wrap App within AppProvider to use data from context.js in every component */}
     <AppProvider>
       <App />
     </AppProvider>

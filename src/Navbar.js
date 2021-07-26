@@ -6,19 +6,23 @@ import { useGlobalContext } from './context'
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
 
+  // When hover on navbar item, will get text and coordinates of this item 
   const displaySubmenu = e => {
+    // store item text for showing right sublinks in openSubmenu
     const page = e.target.textContent;
+    // get coordinates and size props/ calculate center and bottom
     const tempBtn = e.target.getBoundingClientRect();
     const center = (tempBtn.left + tempBtn.right) / 2;
     const bottom = tempBtn.bottom - 3;
+    // send info about current item to function that updates states
     openSubmenu(page, { center, bottom });
   }
 
+  // when we hover outside of buttons - hide submenu
   const handleSubmenu = e => {
     if (!e.target.classList.contains('link-btn')) {
       closeSubmenu()
     }
-
   }
 
   return (
